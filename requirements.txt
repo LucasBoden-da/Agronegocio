@@ -1,0 +1,5 @@
+scikit-learn==1.5.1
+tensorflow==2.18.0
+pandas==2.2.2
+keras==3.8.0
+joblib==1.4.2

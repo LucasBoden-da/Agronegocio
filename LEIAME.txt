@@ -1,4 +1,4 @@
-# Projeto 10 - Construindo API Para Deploy do Modelo de Deep Learning
+# Construindo API Para Deploy do Modelo de Deep Learning
 
 # Instruções
 

@@ -1,38 +1,38 @@
-# Construindo API Para Deploy do Modelo de Deep Learning
-# Cliente
+# Building API for Deep Learning Model Deployment
+# Client
 
 # Imports
 import requests
 import json
 
-# URL da API
+# API URL
 url = 'http://127.0.0.1:5000/predict'
 
-# Dados a serem enviados como JSON
-dados = [
+# Data to be sent as JSON
+data = [
     {
-        "indice_vegetacao": 354, 
-        "capacidade_solo": 684, 
-        "concentracao_co2": 3736.3, 
-        "nivel_nutrientes": 914.09, 
-        "indice_fertilizantes": 849.78, 
-        "profundidade_raiz": 412.37, 
-        "radiacao_solar": 889, 
-        "precipitacao": 49.81, 
-        "estagio_crescimento": 154.92254, 
-        "historico_rendimento": 245.3
+        "vegetation_index": 354, 
+        "soil_capacity": 684, 
+        "co2_concentration": 3736.3, 
+        "nutrient_level": 914.09, 
+        "fertilizer_index": 849.78, 
+        "root_depth": 412.37, 
+        "solar_radiation": 889, 
+        "precipitation": 49.81, 
+        "growth_stage": 154.92254, 
+        "yield_history": 245.3
     }
 ]
 
-# Headers específicos para definir o tipo de conteúdo como JSON
+# Headers to define the content type as JSON
 headers = {'Content-Type': 'application/json'}
 
-# Faz a requisição POST
-response = requests.post(url, headers = headers, data = json.dumps(dados))
+# Makes the POST request
+response = requests.post(url, headers=headers, data=json.dumps(data))
 
-# Verifica se a requisição foi bem sucedida
+# Checks if the request was successful
 if response.status_code == 200:
-    print("\nResposta da API:", response.json())
+    print("\nAPI Response:", response.json())
     print("\n")
 else:
-    print("Erro na requisição:", response.status_code, response.text)
+    print("Request error:", response.status_code, response.text)

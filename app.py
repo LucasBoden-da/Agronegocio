@@ -1,4 +1,4 @@
-# Construindo API Para Deploy do Modelo de Deep Learning
+# Building API for Deep Learning Model Deployment
 # API
 
 # Imports
@@ -12,69 +12,68 @@ from flask import Flask, request, jsonify
 import warnings
 warnings.filterwarnings('ignore')
 
-# Carrega o modelo e o scaler com tratamento de erros
+# Load the model and scaler with error handling
 try:
-    modelo_final = tf.keras.models.load_model('modelo.keras')
-    scaler_final = joblib.load('scaler.joblib')
+    final_model = tf.keras.models.load_model('model.keras')
+    final_scaler = joblib.load('scaler.joblib')
 except Exception as e:
-    print("Erro ao carregar o modelo ou o scaler:", e)
+    print("Error loading the model or scaler:", e)
     traceback.print_exc()
-    modelo_final = None
-    scaler_final = None
+    final_model = None
+    final_scaler = None
 
-# Cria a app
+# Create the app
 app = Flask(__name__)
 
-# Cria a rota de previsão
+# Create the prediction route
 @app.route('/predict', methods=['POST'])
 def predict():
 
-    # Tenta executar o bloco de código
+    # Attempt to execute the code block
     try:
 
-        # Obtém os dados do request como JSON
-        dados = request.get_json(force=True)
+        # Get the data from the request as JSON
+        data = request.get_json(force=True)
 
-        # Verifica se os dados foram fornecidos
-        if not dados:
-            return jsonify({"error": "Nenhum dado fornecido"}), 400
+        # Check if data was provided
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
 
-        # Verifica se o modelo e o scaler estão carregados corretamente
-        if not modelo_final or not scaler_final:
-            return jsonify({"error": "Modelo ou scaler não carregados corretamente"}), 500
+        # Check if the model and scaler are loaded correctly
+        if not final_model or not final_scaler:
+            return jsonify({"error": "Model or scaler not loaded correctly"}), 500
 
-        # Prepara os dados de entrada no formato de array NumPy
-        dados = np.array([list(d.values()) for d in dados])
+        # Prepare the input data as a NumPy array
+        data = np.array([list(d.values()) for d in data])
 
-        # Padroniza os dados de entrada
-        dados_scaled = scaler_final.transform(dados)
+        # Scale the input data
+        data_scaled = final_scaler.transform(data)
 
-        # Realiza a previsão usando o modelo
-        previsao = modelo_final.predict(dados_scaled)
+        # Perform the prediction using the model
+        prediction = final_model.predict(data_scaled)
 
-        # Converte a previsão para o formato de lista
-        previsao_formato_lista = previsao.flatten().tolist()
+        # Convert the prediction to list format
+        prediction_as_list = prediction.flatten().tolist()
 
-        # Retorna a previsão como JSON
-        return jsonify(previsao_umidade_solo = previsao_formato_lista)
+        # Return the prediction as JSON
+        return jsonify(soil_moisture_prediction=prediction_as_list)
 
-    # Captura qualquer exceção durante a predição
+    # Catch any exception during prediction
     except Exception as e:
         
-        # Imprime o erro no console
-        print("Erro durante a predição:", e)
+        # Print the error to the console
+        print("Error during prediction:", e)
         
-        # Imprime o traceback no console
+        # Print the traceback to the console
         traceback.print_exc()
         
-        # Retorna um erro como JSON
-        return jsonify({"error": "Erro durante a predição", "message": str(e)}), 500
+        # Return an error as JSON
+        return jsonify({"error": "Error during prediction", "message": str(e)}), 500
 
-# Bloco principal e execução da app
+# Main block and app execution
 if __name__ == '__main__':
     try:
         app.run(debug=True)
     except Exception as e:
-        print("Erro ao iniciar o servidor:", e)
+        print("Error starting the server:", e)
         traceback.print_exc()
-

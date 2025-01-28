@@ -1,74 +1,74 @@
-# Previsão de Rendimento de Colheita e Otimização da Irrigação
+# Crop Yield Prediction and Irrigation Optimization
 
-## Descrição do Projeto
+## Project Description
 
-Este projeto utiliza técnicas de **Deep Learning** para prever o rendimento das colheitas e otimizar a irrigação, com base em variáveis ambientais e dados históricos. A abordagem visa fornecer insights precisos para auxiliar na tomada de decisões no agronegócio, promovendo práticas agrícolas mais eficientes e sustentáveis.
+This project leverages **Deep Learning** techniques to predict crop yields and optimize irrigation based on environmental variables and historical data. The approach aims to provide accurate insights to support decision-making in agribusiness, promoting more efficient and sustainable agricultural practices.
 
-## Objetivos
+## Objectives
 
-- **Previsão de Rendimento de Colheita:** Antecipar a produtividade agrícola com base em fatores ambientais e históricos.
-- **Otimização da Irrigação:** Fornecer recomendações para uso eficiente da água, garantindo o crescimento ideal das culturas e conservação dos recursos hídricos.
+- **Crop Yield Prediction:** Anticipate agricultural productivity based on environmental and historical factors.
+- **Irrigation Optimization:** Provide recommendations for efficient water usage, ensuring optimal crop growth and resource conservation.
 
-## Tecnologias Utilizadas
+## Technologies Used
 
-- **Linguagem de Programação:** Python
-- **Bibliotecas:** TensorFlow, Keras, Pandas, NumPy, Scikit-learn
-- **Desenvolvimento Web:** Flask para a criação de APIs RESTful
-- **Ferramentas de Serialização:** Joblib para serialização de modelos e escaladores
+- **Programming Language:** Python
+- **Libraries:** TensorFlow, Keras, Pandas, NumPy, Scikit-learn
+- **Web Development:** Flask for creating RESTful APIs
+- **Serialization Tools:** Joblib for serializing models and scalers
 
-## Estrutura do Repositório
+## Repository Structure
 
-- `app.py`: Script principal que implementa a API Flask para servir o modelo de previsão.
-- `cliente.py`: Script de exemplo para consumir a API e obter previsões.
-- `dataset.csv`: Conjunto de dados utilizado para treinar o modelo.
-- `dicionario_dados.xlsx`: Dicionário detalhado das variáveis presentes no dataset.
-- `modelo.ipynb`: Notebook Jupyter contendo o processo de desenvolvimento e treinamento do modelo de Deep Learning.
-- `modelo_dsa.keras`: Arquivo serializado do modelo treinado.
-- `scaler.joblib`: Objeto de escalonamento dos dados para garantir consistência nas previsões.
+- `app.py`: Main script implementing the Flask API to serve the prediction model.
+- `client.py`: Example script to consume the API and retrieve predictions.
+- `dataset.csv`: Dataset used to train the model.
+- `data_dictionary.xlsx`: Detailed dictionary of the variables in the dataset.
+- `model.ipynb`: Jupyter Notebook containing the process for developing and training the Deep Learning model.
+- `model_dsa.keras`: Serialized file of the trained model.
+- `scaler.joblib`: Data scaler object to ensure consistency in predictions.
 
-## Como Utilizar
+## How to Use
 
-1. **Clonar o Repositório:**
+1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/LucasBoden-da/Agronegocio.git
-   cd Agronegocio
+   git clone https://github.com/LucasBoden-da/Agribusiness.git
+   cd Agribusiness
    ```
 
-2. **Instalar as Dependências:**
+2. **Install Dependencies:**
 
-   Certifique-se de ter o Python instalado. Em seguida, instale as bibliotecas necessárias:
+   Make sure you have Python installed. Then, install the required libraries:
 
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Executar a API:**
+3. **Run the API:**
 
-   Inicie o servidor Flask para disponibilizar a API de previsão:
+   Start the Flask server to make the prediction API available:
 
    ```bash
    python app.py
    ```
 
-   A API estará disponível em `http://127.0.0.1:5000/`.
+   The API will be available at `http://127.0.0.1:5000/`.
 
-4. **Obter Previsões:**
+4. **Retrieve Predictions:**
 
-   Utilize o script `cliente.py` ou ferramentas como o Postman para enviar requisições à API e obter as previsões de rendimento de colheita e recomendações de irrigação.
+   Use the `client.py` script or tools like Postman to send requests to the API and obtain crop yield predictions and irrigation recommendations.
 
-## Contribuição
+## Contribution
 
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests com melhorias, correções de bugs ou novas funcionalidades.
+Contributions are welcome! Feel free to open issues or submit pull requests with improvements, bug fixes, or new features.
 
-## Licença
+## License
 
-Este projeto está licenciado sob a [Licença MIT](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
 
-## Contato
+## Contact
 
-Para mais informações ou interesse em colaborações:
+For more information or collaboration inquiries:
 
-- **Autor:** Lucas Boden
+- **Author:** Lucas Boden
 - **Email:** lucas.boden@example.com
-- **LinkedIn:** [https://www.linkedin.com/in/lucas-stuart/](https://www.linkedin.com/in/lucas-stuart/)
+- **LinkedIn:** [https://www.linkedin.com/in/lucas-stuart/](https://www.linkedin.com/in/lucas-stuart/) 

@@ -70,5 +70,5 @@ This project is licensed under the [MIT License](LICENSE).
 For more information or collaboration inquiries:
 
 - **Author:** Lucas Boden
-- **Email:** lucas.boden@example.com
+- **Email:** lucashippertt@hotmail.com
 - **LinkedIn:** [https://www.linkedin.com/in/lucas-stuart/](https://www.linkedin.com/in/lucas-stuart/) 
